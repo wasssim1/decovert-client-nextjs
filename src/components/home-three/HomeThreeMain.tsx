@@ -1,9 +1,10 @@
-import React from 'react';
-import HeroSectionThree from './HeroSectionThree';
-import CategorySlider from './CategorySlider';
-import TrendingProducts from './TrendingProducts';
-import NewsletterSection from './NewsletterSection';
+import { ALL_BLOGS_DATA } from '@/data/blog-data';
+
 import BlogSection from './BlogSection';
+import CategorySlider from './CategorySlider';
+import HeroSectionThree from './HeroSectionThree';
+import NewsletterSection from './NewsletterSection';
+import TrendingProducts from './TrendingProducts';
 
 const HomeThreeMain = () => {
     return (
@@ -12,7 +13,7 @@ const HomeThreeMain = () => {
             <CategorySlider/>
             <TrendingProducts/>
             <NewsletterSection/>
-            <BlogSection/>
+            <BlogSection blogsList={ALL_BLOGS_DATA}/>
         </>
     );
 };

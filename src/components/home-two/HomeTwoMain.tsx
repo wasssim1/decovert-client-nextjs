@@ -1,3 +1,5 @@
+import { ALL_BLOGS_DATA } from "@/data/blog-data";
+
 import BlogSection from "../home-three/BlogSection";
 import BannerSection from "./BannerSection";
 import FeatureSection from "./FeatureSection";
@@ -13,7 +15,7 @@ const HomeTwoMain = () => {
       {/* <CategorySection/> */}
       {/* <TrendingProducts/> */}
       {/* <BrandSlider/> */}
-      <BlogSection />
+      <BlogSection blogsList={ALL_BLOGS_DATA} />
     </>
   );
 };

@@ -1,41 +1,39 @@
 "use client";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import useGlobalContext from "@/hooks/use-context";
 import { blogDataType } from "@/interFace/api-interFace";
 
 const BLOG_SECTION_HEADER = `Laissez-vous inspirer par DécoVert`;
 const BLOG_SECTION_SUBHEADER = `Découvrir`;
 const BLOG_SECTION_NO_BLOG_AVAILABLE = `Pas d'articles disponible`;
 
-const BlogSection = () => {
-  const { blog, setBlog } = useGlobalContext();
+const BlogSection = ({ blogsList }: { blogsList: blogDataType[] }) => {
+  // const { blog, setBlog } = useGlobalContext();
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(9);
   const [totalPages, seTotalPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.BASE_URL}blog/all-blog?page=${page}&limit=${limit}`)
-      .then(
-        (res: {
-          data: {
-            blogs: blogDataType[];
-            totalPages: number;
-            currentPage: number;
-          };
-        }) => {
-          setBlog(res.data.blogs);
-          seTotalPages(res.data.totalPages);
-          setCurrentPage(res.data.currentPage);
-        }
-      )
-      .catch((e) => console.log(e));
-  }, [page, limit, setBlog]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.BASE_URL}blog/all-blog?page=${page}&limit=${limit}`)
+  //     .then(
+  //       (res: {
+  //         data: {
+  //           blogs: blogDataType[];
+  //           totalPages: number;
+  //           currentPage: number;
+  //         };
+  //       }) => {
+  //         setBlog(res.data.blogs);
+  //         seTotalPages(res.data.totalPages);
+  //         setCurrentPage(res.data.currentPage);
+  //       }
+  //     )
+  //     .catch((e) => console.log(e));
+  // }, [page, limit, setBlog]);
 
   return (
     <section className="bd-news__area pt-125 pb-65">
@@ -48,13 +46,13 @@ const BlogSection = () => {
             </div>
           </div>
         </div>
-        {blog?.length ? (
+        {blogsList?.length ? (
           <div className="row">
-            {blog.slice(0, 3).map((item, num) => (
+            {blogsList.slice(0, 3).map((item, num) => (
               <div className="col-xl-4 col-lg-4 col-md-6" key={num}>
                 <div className="bd-news__item mb-60">
                   <div className="bd-news__thumb w-img">
-                    <Link href={`/blog-details/${item._id}`}>
+                    <Link href={`/discover/${item.slug}`}>
                       <Image
                         width={500}
                         height={500}
@@ -83,14 +81,14 @@ const BlogSection = () => {
                     </div>
                     <div className="bd-news__title">
                       <h3>
-                        <Link href={`/blog-details/${item._id}`}>
+                        <Link href={`/discover/${item.slug}`}>
                           {item.title}
                         </Link>
                       </h3>
                     </div>
                     <Link
                       className="bd-news__btn"
-                      href={`/blog-details/${item._id}`}
+                      href={`/discover/${item.slug}`}
                     >
                       En Savoir Plus
                       <span>

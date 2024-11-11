@@ -8,13 +8,13 @@ const fetchBlogsData = async (): Promise<blogDataType[]> => {
 };
 
 const BlogGridPage = async () => {
-  const blogs = await fetchBlogsData();
+  // const blogs = await fetchBlogsData();
 
   return (
     <>
       <Wrapper>
         <main>
-          <BlogGridMain blogsList={blogs} />
+          <BlogGridMain blogsList={ALL_BLOGS_DATA} />
         </main>
       </Wrapper>
     </>
