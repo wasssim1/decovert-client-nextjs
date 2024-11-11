@@ -9,7 +9,7 @@ const BREADCRUMB_CURRENT = "Découvrir";
 const BlogGridMain = ({ blogsList }: { blogsList: blogDataType[] }) => {
   return (
     <>
-      <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_CURRENT} />
+      {/* <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_CURRENT} /> */}
       <BlogGridSection blogsList={blogsList} />
     </>
   );

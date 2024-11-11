@@ -21,7 +21,7 @@ const BlogDetailsMain = ({ blogItem }: { blogItem: blogDataType }) => {
 
   return (
     <>
-      <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_DISCOVER} />
+      {/* <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_DISCOVER} /> */}
       <BlogDetailsArea blogItem={blogItem} />
     </>
   );

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 interface paginationType {
   Pagination_space: string;
@@ -8,13 +7,7 @@ interface paginationType {
   setPage: any;
 }
 
-const PaginationTwo = ({
-  Pagination_space,
-  setPage,
-}: paginationType) => {
-
-
-
+const PaginationTwo = ({ Pagination_space, setPage }: paginationType) => {
   return (
     <div
       className={`bd-basic__pagination ${
@@ -23,14 +16,13 @@ const PaginationTwo = ({
       data-wow-delay=".3s"
     >
       <nav>
-        <ul><li
-        className="active"
-        
-      >
-        <Link href="" onClick={() => setPage(1)}>
-          Back
-        </Link>
-      </li></ul>
+        <ul>
+          <li className="active">
+            <Link href="" onClick={() => setPage(1)}>
+              Retour
+            </Link>
+          </li>
+        </ul>
       </nav>
     </div>
   );

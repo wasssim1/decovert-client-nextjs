@@ -4,7 +4,7 @@ import productList from "../../data/products";
 const BANNER_PRODUCTS_CATEGORIES = [
   {
     id: 21,
-    productImg: "/assets/img/categories/home-banner/categ-1.jpg",
+    productImg: "https://i.ibb.co/T4SdMGk/decovert-403571.jpg",
     productTag: "Éco-",
     productTitle: "Plantes d'intérieur",
     productDesc: "🪴 Mini-plantes, Succulentes & Cactus",
@@ -13,7 +13,7 @@ const BANNER_PRODUCTS_CATEGORIES = [
   },
   {
     id: 22,
-    productImg: "/assets/img/categories/home-banner/categ-2.jpg",
+    productImg: "https://i.ibb.co/vDWS8CH/decovert-7615560.jpg",
     productTag: "Éco-",
     productTitle: "Plantes Médicales",
     productDesc: "🪻 Avoir votre propre coin pharmaceutique à domicile",
@@ -22,11 +22,11 @@ const BANNER_PRODUCTS_CATEGORIES = [
   },
   {
     id: 23,
-    productImg: "/assets/img/product/banner/product-banner-03.jpg",
+    productImg: "https://i.ibb.co/jyVs2gV/decovert-1931149.jpg",
     productTag: "Éco-",
     productTitle: "Fruitiers",
     productDesc:
-      "C'est un choix de vie qui enrichit votre bien-être",
+      "🍇 C'est un choix de vie qui enrichit votre bien-être",
     productBtn: "Voir Plus",
     bannerClass: "bd-product__banner-content banner-fruits",
   },

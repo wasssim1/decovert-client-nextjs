@@ -1,15 +1,12 @@
-import React from "react";
-import ContactForm from "./ContactForm";
-import ContactMap from "./ContactMap";
 import Breadcrumb from "../common/breadcrumb/Breadcrumb";
+import ContactForm from "./ContactForm";
 
 const ContactMain = () => {
   return (
     <>
-      {" "}
-      <Breadcrumb breadHome="Home" breadMenu="Contact" />
+      {/* <Breadcrumb breadHome="Acceuil" breadMenu="Contact" /> */}
       <ContactForm />
-      <ContactMap />
+      {/* <ContactMap /> */}
     </>
   );
 };

@@ -10,7 +10,7 @@ import SidebarSearchContent from "./elements/SidebarSearchContent";
 
 const MOBILE_SIDEBAR_CONTACT_INFO = "Coordonnées";
 const MOBILE_SIDEBAR_ADDRESS = "Tunis, Tunisia";
-const MOBILE_SIDEBAR_PHONE = "(+216) 98 123 456";
+const MOBILE_SIDEBAR_PHONE = "(+216) 20 678 882";
 const MOBILE_SIDEBAR_EMAIL = "contact@decovert.store";
 
 const Sidebar = () => {

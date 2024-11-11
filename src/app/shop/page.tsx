@@ -10,7 +10,7 @@ const Shop = () => {
     <>
       <Wrapper>
         <main>
-          <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_SHOP} />
+          {/* <Breadcrumb breadHome={BREADCRUMB_HOME} breadMenu={BREADCRUMB_SHOP} /> */}
           <ShopMain />
         </main>
       </Wrapper>

@@ -31,7 +31,7 @@ const TrendingProducts = () => {
                             <div className="col-xl-12">
                                 <div className="bd-product__sidebar pb-40">
                                     <div className="col-xl-12 col-lg-6">
-                                        <TrendingProductHighlightBanner/>
+                                        {/* <TrendingProductHighlightBanner/> */}
                                     </div>
                                     <div className="col-xl-12 col-lg-6">
                                         <ShippingInfo />

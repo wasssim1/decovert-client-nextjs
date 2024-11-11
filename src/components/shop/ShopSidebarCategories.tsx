@@ -1,8 +1,13 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 import useGlobalContext from "@/hooks/use-context";
 import { CategoryType } from "@/interFace/api-interFace";
 import ShopSidebarPreloader from "@/preloaders/ShopSidebarPreloader";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+const PAGE_SIDEBAR_TITLE_CATEGORIES = "Catégories";
+const PAGE_SIDEBAR_FILTER_CATEGORIES = "Voir Tous";
+const PAGE_SIDEBAR_NO_CATEGORY_FOUND = "Aucune catégorie trouvée";
 
 const ShopSidebarCategories = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -11,12 +16,12 @@ const ShopSidebarCategories = () => {
   const { setProducts, setotalPages, setcurrentPage, limit, setPage, page } =
     useGlobalContext();
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(`${process.env.BASE_URL}setting/category`)
       .then((res) => {
         setCategories(res.data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((e) => console.log(e));
   }, []);
@@ -62,7 +67,9 @@ const ShopSidebarCategories = () => {
   return (
     <>
       <div className="bd-filter__widget child-content-hidden">
-        <h4 className="bd-filter__widget-title drop-btn">Categories</h4>
+        <h4 className="bd-filter__widget-title drop-btn">
+          {PAGE_SIDEBAR_TITLE_CATEGORIES}
+        </h4>
         <div className="bd-filter__content">
           <div onClick={handleViewAll} className="bd-singel__rating">
             <input
@@ -73,7 +80,7 @@ const ShopSidebarCategories = () => {
             />
             <label className="radio-star" htmlFor="view-all-1">
               <div className="bd-product__icon custome-cursor text-capitalize">
-                view all
+                {PAGE_SIDEBAR_FILTER_CATEGORIES}
               </div>
             </label>
           </div>
@@ -99,19 +106,19 @@ const ShopSidebarCategories = () => {
             ))
           ) : (
             <>
-             {
-              loading ?
-              <>
-               <p className="text-center">No Category Found</p>
-              </>
-              :
-              <>
-              <ShopSidebarPreloader end={7}/>
-              </>
-             }
-          </>
+              {loading ? (
+                <>
+                  <p className="text-center">
+                    {PAGE_SIDEBAR_NO_CATEGORY_FOUND}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <ShopSidebarPreloader end={7} />
+                </>
+              )}
+            </>
           )}
-         
         </div>
       </div>
     </>

@@ -1,14 +1,11 @@
-import React from 'react';
-import FaqSection from './FaqSection';
-import FaqForm from './FaqForm';
+import FaqSection from "./FaqSection";
 
 const FaqMain = () => {
-    return (
-        <>
-            <FaqSection/>
-            <FaqForm/>
-        </>
-    );
+  return (
+    <>
+      <FaqSection />
+    </>
+  );
 };
 
 export default FaqMain;

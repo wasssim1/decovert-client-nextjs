@@ -1,12 +1,11 @@
-import React from 'react';
-import ShopSection from './ShopSection';
+import ShopSection from "./ShopSection";
 
 const ShopMain = () => {
-    return (
-        <>
-            <ShopSection/>
-        </>
-    ); 
+  return (
+    <>
+      <ShopSection />
+    </>
+  );
 };
 
 export default ShopMain;

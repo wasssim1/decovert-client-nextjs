@@ -8,7 +8,7 @@ const ShopPageCategoryWize = ({ params }: { params: { category: string } }) => {
     <>
       <Wrapper>
         <main>
-          <Breadcrumb breadHome="Home" breadMenu="Shop" />
+          {/* <Breadcrumb breadHome="Home" breadMenu="Shop" /> */}
           <ShopSectionCategoryWize category={category} />
         </main>
       </Wrapper>

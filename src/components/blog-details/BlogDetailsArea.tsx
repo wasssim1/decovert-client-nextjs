@@ -59,13 +59,18 @@ const BlogDetailsArea = ({ blogItem }: { blogItem: blogDataType }) => {
 
                       <div className="blog-content">
                         <h3>{blogItem?.title}</h3>
-                        {blogItem.blogContent.map((paragraph) => (
-                          <p>{paragraph}</p>
+                        {blogItem.blogContent.map((paragraph, idx) => (
+                          <p key={idx}>{paragraph}</p>
                         ))}
 
                         <div className="blog__details__tag tagcloud">
-                          {blogItem.tags?.map((tag) => (
-                            <Link href={`/discover?tag=${tag}`}>#{tag}</Link>
+                          {blogItem.tags?.map((tag, idx) => (
+                            <Link
+                              key={`${tag}-${idx}`}
+                              href={`/discover?tag=${tag}`}
+                            >
+                              #{tag}
+                            </Link>
                           ))}
                         </div>
                       </div>

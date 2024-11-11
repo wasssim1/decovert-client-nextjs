@@ -1,236 +1,140 @@
-import React from 'react';
+const FAQ_DATA_1 = [
+  {
+    question: "Quels types de plantes proposez-vous ?",
+    answer:
+      "Nous proposons une sélection de petites plantes parfaites pour les intérieurs, les balcons et les petits espaces. Nos plantes sont idéales pour la décoration et nécessitent peu d’entretien.",
+  },
+  {
+    question: "Livrez-vous dans toute la Tunisie ?",
+    answer:
+      "Oui, nous livrons dans toute la Tunisie avec un service de livraison rapide et sécurisé.",
+  },
+  {
+    question: "Comment prendre soin de mes plantes ?",
+    answer:
+      "Vous trouverez des conseils d'entretien dans nos fiches produits ainsi que sur notre blog. N'hésitez pas à consulter nos guides pour en savoir plus.",
+  },
+  {
+    question: "Quels modes de paiement acceptez-vous ?",
+    answer:
+      "Nous acceptons les paiements par carte bancaire, virement bancaire, et paiement à la livraison.",
+  },
+  {
+    question: "Puis-je obtenir des conseils sur l’aménagement de mon espace ?",
+    answer:
+      "Bien sûr ! Consultez notre blog et nos réseaux sociaux pour des idées et des conseils sur l’aménagement de petits espaces avec des plantes et de la décoration.",
+  },
+];
+
+const FAQ_DATA_2 = [
+  {
+    question: "Que faire si ma plante arrive endommagée ?",
+    answer:
+      "Si votre plante ou produit arrive endommagé, contactez-nous dans les 48 heures avec des photos. Nous vous aiderons à trouver une solution, que ce soit un remplacement ou un remboursement.",
+  },
+  {
+    question: "Offrez-vous des réductions pour les commandes en gros ?",
+    answer:
+      "Oui, nous proposons des réductions pour les commandes en gros, que ce soit pour des événements, des cadeaux d'entreprise, ou la décoration d'espaces professionnels. Contactez-nous pour plus de détails.",
+  },
+  {
+    question: "Quelles garanties proposez-vous sur vos produits ?",
+    answer:
+      "Nous nous engageons à fournir des plantes et produits de haute qualité. En cas de problème, vous pouvez nous contacter pour toute question de retour ou de garantie sur votre achat.",
+  },
+  {
+    question: "Puis-je offrir une carte cadeau ?",
+    answer:
+      "Oui, nous proposons des cartes cadeaux pour vos proches ! Elles sont parfaites pour les amateurs de plantes et de décoration naturelle. Contactez-nous pour en savoir plus.",
+  },
+];
 
 const FaqSection = () => {
-    return (
-        <section className="bd-faq__area pt-115 pb-95">
-            <div className="container small-container">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div className="bd-faq__wrapper mb-30">
-                            <div className="bd-faq__accordion" data-aos="fade-left" data-aos-duration="1000">
-                                <div className="accordion" id="accordionExample">
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingOne">
-                                            <button className="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                How to buy a product?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" className="accordion-collapse collapse show"
-                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div className="accordion-body">
-                                                <p>There are many variations of passages of available but the majority have suffered
-                                                    alteration in that some form by injected randomised words which don{`’`}t look even
-                                                    as slightly believable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingTwo">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                I am a new user. How should I start?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                            data-bs-parent="#accordionExample">
-                                            <div className="accordion-body">
-                                                <p>Web fonts are often terrible for web performance and none of the font loading
-                                                    strategies are particularly effective to address that. Upcoming font options may
-                                                    finally deliver on the promise.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingThree">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Returns and refunds
-                                            </button>
-                                        </h2>
-                                        <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree"
-                                            data-bs-parent="#accordionExample">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind, smart folks from the community to run online workshops for all of us to learn
-                                                    together. And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingFour">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                Are my details secured?
-
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour"
-                                            data-bs-parent="#accordionExample">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind, smart folks from the community to run online workshops for all of us to learn
-                                                    together. And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingFive">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                Sale code is not working
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFive" className="accordion-collapse collapse" aria-labelledby="headingFive"
-                                            data-bs-parent="#accordionExample">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingSix">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                                                How do I make payment by my credit card
-                                            </button>
-                                        </h2>
-                                        <div id="collapseSix" className="accordion-collapse collapse" aria-labelledby="headingSix"
-                                            data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>There are many variations of passages of available but the majority have suffered
-                                                    alteration in that some form by injected randomised words which don{`’`}t look even
-                                                    as
-                                                    slightly believable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+  return (
+    <section className="bd-faq__area pt-115 pb-95">
+      <div className="container small-container">
+        <h2 className="bd-section__title mb-50">Aide & FAQs</h2>
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="bd-faq__wrapper mb-30">
+              <div
+                className="bd-faq__accordion"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+              >
+                <div className="accordion" id="accordionExample">
+                  {FAQ_DATA_1.map((faqItem, idx) => (
+                    <div key={`${idx}-faq-grp-1`} className="accordion-item">
+                      <h2 className="accordion-header" id="headingOne">
+                        <button
+                          className="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          {faqItem.question}
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseOne"
+                        className="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div className="accordion-body">
+                          <p>{faqItem.answer}</p>
                         </div>
+                      </div>
                     </div>
-                    <div className="col-lg-6">
-                        <div className="bd-faq__wrapper-2 mb-30">
-                            <div className="bd-faq__accordion" data-aos="fade-left" data-aos-duration="1000">
-                                <div className="accordion" id="accordionExample2">
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingSeven">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                                Why you choose our service?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseSeven" className="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                            data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Web fonts are often terrible for web performance and none of the font loading
-                                                    strategies are particularly effective to address that. Upcoming font options may
-                                                    finally deliver on the promise.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingEight">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                                How many tree we will get?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseEight" className="accordion-collapse collapse" aria-labelledby="headingEight"
-                                            data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingNine">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                                Can we get maintanence service?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseNine" className="accordion-collapse collapse" aria-labelledby="headingNine"
-                                            data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingTen">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-                                                How many cost for this service?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTen" className="accordion-collapse collapse" aria-labelledby="headingTen"
-                                            data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingEleven">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
-                                                How many cost for this service?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseEleven" className="accordion-collapse collapse"
-                                            aria-labelledby="headingEleven" data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header" id="headingTwelve">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-                                                How many cost for this service?
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwelve" className="accordion-collapse collapse"
-                                            aria-labelledby="headingTwelve" data-bs-parent="#accordionExample2">
-                                            <div className="accordion-body">
-                                                <p>Front-end and design are remarkably complex these days. That{`’`}s why we invite
-                                                    kind,
-                                                    smart folks from the community to run online workshops for all of us to learn
-                                                    together.
-                                                    And we have new ones.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  ))}
                 </div>
+              </div>
             </div>
-        </section>
-    );
+          </div>
+          <div className="col-lg-6">
+            <div className="bd-faq__wrapper-2 mb-30">
+              <div
+                className="bd-faq__accordion"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+              >
+                <div className="accordion" id="accordionExample2">
+                  {FAQ_DATA_2.map((faqItem, idx) => (
+                    <div key={`${idx}-faq-grp-2`} className="accordion-item">
+                      <h2 className="accordion-header" id="headingTwo">
+                        <button
+                          className="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwo"
+                          aria-expanded="true"
+                          aria-controls="collapseTwo"
+                        >
+                          {faqItem.question}
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseTwo"
+                        className="accordion-collapse collapse show"
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample2"
+                      >
+                        <div className="accordion-body">
+                          <p>{faqItem.answer}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default FaqSection;

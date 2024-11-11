@@ -7,14 +7,12 @@ import GridIcon from "@/svg/GridIcon";
 import ListIcon from "@/svg/ListIcon";
 
 import NiceSelect from "../common/NiceSelect";
-import FlashBanner from "../elements/product/FlashBanner";
 import Pagination from "../elements/product/Pagination";
 import PaginationTwo from "../elements/product/PaginationTwo";
 import GridViewProduct from "./GridViewProduct";
 import ListViewProduct from "./ListViewProduct";
 import ProductModal from "./ProductModal";
 import ShopSidebarCategories from "./ShopSidebarCategories";
-import ShopSidebarRetting from "./ShopSidebarRatings";
 
 const ShopSection = () => {
   const {
@@ -35,22 +33,22 @@ const ShopSection = () => {
   const menuData = [
     {
       id: 1,
-      text: "New Arrival",
+      text: "Nouvelle arrivée",
       api: "new-arrival",
     },
     {
       id: 2,
-      text: "Best Sale",
+      text: "Meilleure vente",
       api: "best-selling-products",
     },
     {
       id: 3,
-      text: "Trending",
+      text: "Tendance",
       api: "trending-products",
     },
     {
       id: 4,
-      text: "Offers",
+      text: "Offres",
       api: "offer-products",
     },
   ];
@@ -124,8 +122,8 @@ const ShopSection = () => {
               <div className="bd-sidebar__widget-warpper mb-60">
                 <div className="bd-product__filters">
                   <ShopSidebarCategories />
-                  <ShopSidebarRetting />
-                  <FlashBanner />
+                  {/* <ShopSidebarRetting /> */}
+                  {/* <FlashBanner /> */}
                 </div>
               </div>
             </div>

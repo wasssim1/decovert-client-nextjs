@@ -1,23 +1,37 @@
-"use client"
+"use client";
+
+import axios from "axios";
+import emailjs from "emailjs-com";
+import moment from "moment";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+
+import useGlobalContext from "@/hooks/use-context";
 import EmailIcon from "@/sheardComponent/elements/icons/email-icon";
 import LocationIcon from "@/sheardComponent/elements/icons/location-icon";
 import PhoneIcon from "@/sheardComponent/elements/icons/phone-icon";
-import { useForm, SubmitHandler } from "react-hook-form";
-import React from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import emailjs from "emailjs-com";
-import moment from "moment";
-import useGlobalContext from "@/hooks/use-context";
+
 interface FormData {
   name: string;
   email: string;
   phone: string;
   message: string;
-} 
+}
+
+const TOAST_SUCCESS_MESSAGE = "Message envoyé avec succès";
+const TOAST_FAILURE_MESSAGE = "Échec de l'envoi du message";
+
+const PAGE_TITLE_GET_IN_TOUCH = "Contactez-nous";
+
+const FORM_PLACEHOLDER_NAME = "Nom & Prénom";
+const FORM_PLACEHOLDER_PHONE = "Téléphone";
+const FORM_PLACEHOLDER_EMAIL = "E-mail";
+const FORM_PLACEHOLDER_MESSAGE = "Message";
+const FORM_REQUIRED_FIELD = "Champ obligatoire";
+const FORM_SUBMIT = "Envoyer";
 
 const ContactForm = () => {
-  const {user} = useGlobalContext()
+  const { user } = useGlobalContext();
   const {
     register,
     handleSubmit,
@@ -39,45 +53,49 @@ const ContactForm = () => {
       email,
       phone,
       message,
-      date
+      date,
     };
 
-
     const sendEmail = () => {
-        const templateParams = {
-            name: name,
-            message: message,
-            email: email,
-        };
-      
-        emailjs
-          .send(
-            `${process.env.EMAIL_SERVICE_ID}`,
-            `${process.env.EMAIL_TEMPLATE_ID}`,
-            templateParams,
-            `${process.env.EMAIL_PUBLIC_KEY}`
-          )
-          .then(
-            function (response) {
-              console.info("SUCCESS!", response.status, response.text);
-            },
-            function (error) {
-              console.log("FAILED...", error);
-            }
-          );
+      const templateParams = {
+        name: name,
+        message: message,
+        email: email,
       };
 
-    axios.post(`${process.env.BASE_URL}user-input/contact`,userInfo)
-    .then((res)=>{
-        if(res.data.message ==="success"){
-            reset()
-            sendEmail()
-            toast.success(`Message Send Success`);
+      emailjs
+        .send(
+          `${process.env.EMAIL_SERVICE_ID}`,
+          `${process.env.EMAIL_TEMPLATE_ID}`,
+          templateParams,
+          `${process.env.EMAIL_PUBLIC_KEY}`
+        )
+        .then(
+          function (response) {
+            console.info("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
+    };
+
+    axios
+      .post(`${process.env.BASE_URL}user-input/contact`, userInfo)
+      .then((res) => {
+        if (res.data.message === "success") {
+          sendEmail();
+          toast.success(TOAST_SUCCESS_MESSAGE);
+          reset();
         }
-        if(res.data.message ==="custom error"){
-            toast.error(`Message Send Faield`);
+        if (res.data.message === "custom error") {
+          toast.error(TOAST_FAILURE_MESSAGE);
         }
-    })
+      })
+      .catch((err) => {
+        console.log({ err });
+        toast.error(TOAST_FAILURE_MESSAGE);
+      });
   };
 
   return (
@@ -87,7 +105,9 @@ const ContactForm = () => {
           <div className="col-xxl-7 col-xl-7 col-lg-8 col-md-12">
             <div className="bd-contact__main-wrapper mb-70">
               <div className="bd-section__title-wrapper">
-                <h2 className="bd-section__title mb-50">Get in Touch</h2>
+                <h2 className="bd-section__title mb-50">
+                  {PAGE_TITLE_GET_IN_TOUCH}
+                </h2>
               </div>
               <div className="bd-contact__form">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -97,9 +117,9 @@ const ContactForm = () => {
                         <input
                           type="text"
                           defaultValue={user?.name && user?.name}
-                          placeholder="Name"
+                          placeholder={FORM_PLACEHOLDER_NAME}
                           {...register("name", {
-                            required: "name is required",
+                            required: FORM_REQUIRED_FIELD,
                           })}
                         />
                         {errors.name && <span>{errors.name.message}</span>}
@@ -107,20 +127,25 @@ const ContactForm = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="bd-single__form-input  mb-20">
-                        <input defaultValue={user?.phone && user?.phone} type="text" placeholder="Phone" {...register("phone", {
-                            required: "phone is required",
-                          })} />
-                          {errors.phone && <span>{errors.phone.message}</span>}
+                        <input
+                          defaultValue={user?.phone && user?.phone}
+                          type="text"
+                          placeholder={FORM_PLACEHOLDER_PHONE}
+                          {...register("phone", {
+                            required: FORM_REQUIRED_FIELD,
+                          })}
+                        />
+                        {errors.phone && <span>{errors.phone.message}</span>}
                       </div>
                     </div>
                     <div className="col-md-12">
                       <div className="bd-single__form-input  mb-20">
                         <input
                           type="text"
-                          placeholder="Email"
+                          placeholder={FORM_PLACEHOLDER_EMAIL}
                           defaultValue={user?.email && user?.email}
                           {...register("email", {
-                            required: "Email or UserName is required",
+                            required: FORM_REQUIRED_FIELD,
                             pattern: {
                               value:
                                 /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
@@ -134,20 +159,21 @@ const ContactForm = () => {
                     <div className="col-md-12">
                       <div className="bd-single__form-input  mb-20">
                         <textarea
-                          
                           id="message"
-                          placeholder="Messages"
+                          placeholder={FORM_PLACEHOLDER_MESSAGE}
                           {...register("message", {
-                            required: "message is required",
+                            required: FORM_REQUIRED_FIELD,
                           })}
                         />
-                        {errors.message && <span>{errors.message.message}</span>}
+                        {errors.message && (
+                          <span>{errors.message.message}</span>
+                        )}
                       </div>
                     </div>
                   </div>
                   <div className="contact-btn">
                     <button type="submit" className="bd-fill__btn">
-                      Submit Now
+                      {FORM_SUBMIT}
                     </button>
                   </div>
                 </form>
@@ -158,7 +184,7 @@ const ContactForm = () => {
             <div className="bd__sidebar-wrapper mb-70">
               <div className="bd-sidebar__support">
                 <div className="bd-sidebar__title">
-                  <h4>Support Contact</h4>
+                  <h4>{"Support"}</h4>
                 </div>
                 <div className="bd-sidebar__content">
                   <div className="bd-contact__list">
@@ -169,18 +195,12 @@ const ContactForm = () => {
                         </div>
                         <div className="bd-contact__content">
                           <div className="bd-contact__title">
-                            <h4>Phone</h4>
+                            <h4>Téléphone</h4>
                           </div>
                           <span>
                             Mobile :{" "}
                             <a href="tel:(+88)872-670-780">
-                              <span>(+88) 872-670-780</span>
-                            </a>
-                          </span>
-                          <span>
-                            Mobile :{" "}
-                            <a href="tel:(+8)422-655-793">
-                              <span>(+8) 422-655 -793</span>
+                              <span>(+216) 20 678 882</span>
                             </a>
                           </span>
                         </div>
@@ -193,16 +213,11 @@ const ContactForm = () => {
                         </div>
                         <div className="bd-contact__content">
                           <div className="bd-contact__title">
-                            <h4>Email</h4>
+                            <h4>E-mail</h4>
                           </div>
                           <span>
                             <a href="mailto:Info@example.com">
-                              Info@example.com
-                            </a>
-                          </span>
-                          <span>
-                            <a href="mailto:Info@example.com">
-                              Contact@example.com
+                              contact@decovert.store
                             </a>
                           </span>
                         </div>
@@ -217,10 +232,8 @@ const ContactForm = () => {
                           <div className="bd-contact__title">
                             <h4>Location</h4>
                           </div>
-                          <p>
-                            Abbot Favicon Kinney, New York, <br />
-                            USA - 25423
-                          </p>
+                          <p>Tunis, TN</p>
+                          <p>El Mourouj, TN</p>
                         </div>
                       </div>
                     </div>

@@ -1,4 +1,3 @@
-
 import Breadcrumb from "@/components/common/breadcrumb/Breadcrumb";
 import FaqMain from "@/components/faq/FaqMain";
 import Wrapper from "@/layout/DefaultWrapper";
@@ -8,12 +7,12 @@ const Faq = () => {
     <>
       <Wrapper>
         <main>
-        <Breadcrumb breadHome="Home" breadMenu="Faq"/>
-          <FaqMain/>
+          {/* <Breadcrumb breadHome="Acceuil" breadMenu="Aide & FAQ" /> */}
+          <FaqMain />
         </main>
       </Wrapper>
     </>
   );
-}
+};
 
-export default Faq
+export default Faq;

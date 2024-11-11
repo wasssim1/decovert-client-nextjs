@@ -1,12 +1,14 @@
+import Image from "next/image";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+
 import GetRatting from "@/hooks/GetRatting";
 import useGlobalContext from "@/hooks/use-context";
 import { CartProductType } from "@/interFace/interFace";
 import { cart_product } from "@/redux/slices/cartSlice";
 import { wishlist_product } from "@/redux/slices/wishlistSlice";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { useDispatch } from "react-redux";
+
+const PAGE_LIST_NO_PRODUCT = "Pad de produits disponibles";
 
 const ListViewProduct = ({ products, limit }: any) => {
   const { openModal, setOpenModal, setModalId } = useGlobalContext();
@@ -96,7 +98,7 @@ const ListViewProduct = ({ products, limit }: any) => {
                       <p className="mb-25">
                         {item?.productDetails.slice(0, 220)}
                       </p>
- 
+
                       {item?.productQuantity > 0 ? (
                         <>
                           <div className="bd-product__action-btn">
@@ -147,7 +149,9 @@ const ListViewProduct = ({ products, limit }: any) => {
                             >
                               <i className="fal fa-eye"></i>
                             </span>
-                            <span className="text-danger">This Product Is Out Of Stock</span>
+                            <span className="text-danger">
+                              This Product Is Out Of Stock
+                            </span>
                           </div>
                         </>
                       )}
@@ -160,7 +164,7 @@ const ListViewProduct = ({ products, limit }: any) => {
         </>
       ) : (
         <>
-          <p>No Product</p>
+          <p>{PAGE_LIST_NO_PRODUCT}</p>
         </>
       )}
     </>

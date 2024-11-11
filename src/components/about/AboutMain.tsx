@@ -1,20 +1,13 @@
-import React from 'react';
-import AboutPagetitle from './AboutPagetitle';
-import AboutSectionTwo from './AboutSectionTwo';
-import AboutFactSection from './AboutFactSection';
-import AboutTestSlider from './AboutTestSlider';
-import TeamSection from './TeamSection';
+import AboutPagetitle from "./AboutPagetitle";
+import AboutSectionTwo from "./AboutSectionTwo";
 
 const AboutMain = () => {
-    return (
-        <>
-            <AboutPagetitle/>
-            <AboutSectionTwo/>
-            <AboutFactSection/>
-            <AboutTestSlider/>
-            <TeamSection/>
-        </>
-    );
+  return (
+    <>
+      <AboutPagetitle />
+      <AboutSectionTwo />
+    </>
+  );
 };
 
 export default AboutMain;

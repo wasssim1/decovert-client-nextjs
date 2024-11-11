@@ -1,9 +1,14 @@
+import { ToastContainer } from "react-toastify";
+
 import AppProvider from "@/contextApi/AppProvider";
 import { childrenType } from "@/interFace/interFace";
 import ReduxProvider from "@/redux/provider";
-import { ToastContainer } from "react-toastify";
+
 import "../style/index.scss";
 import "./globals.css";
+
+const PAGE_HEAD_TITLE = "DécoVert Store";
+
 export default function RootLayout({ children }: childrenType) {
   return (
     <>
@@ -16,7 +21,7 @@ export default function RootLayout({ children }: childrenType) {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>DécoVert Store</title>
+          <title>{PAGE_HEAD_TITLE}</title>
           <link rel="icon" href="/favicon.png" />
           <link
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;900&display=swap"

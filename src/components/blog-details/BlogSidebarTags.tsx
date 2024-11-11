@@ -21,8 +21,10 @@ const BlogSidebarTags = () => {
       </div>
       <div className="sidebar__widget-content">
         <div className="sidebar__tag">
-          {POPULAR_TAGS.map((tag) => (
-            <Link href={`/discover?tag=${tag}`}>#{tag}</Link>
+          {POPULAR_TAGS.map((tag, idx) => (
+            <Link key={`${tag}-${idx}`} href={`/discover?tag=${tag}`}>
+              #{tag}
+            </Link>
           ))}
         </div>
       </div>

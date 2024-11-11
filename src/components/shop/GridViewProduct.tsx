@@ -9,6 +9,8 @@ import ShopPreloader from "@/preloaders/ShopPreloader";
 import { cart_product } from "@/redux/slices/cartSlice";
 import { wishlist_product } from "@/redux/slices/wishlistSlice";
 
+const PAGE_LIST_NO_PRODUCT = "Pad de produits disponibles";
+
 const GridViewProduct = ({ products, limit }: any) => {
   const { openModal, setOpenModal, setModalId, prodcutLoadding } =
     useGlobalContext();
@@ -181,7 +183,7 @@ const GridViewProduct = ({ products, limit }: any) => {
       ) : (
         <>
           {prodcutLoadding === false && (
-            <p className="text center">No Product</p>
+            <p className="text center">{PAGE_LIST_NO_PRODUCT}</p>
           )}
         </>
       )}

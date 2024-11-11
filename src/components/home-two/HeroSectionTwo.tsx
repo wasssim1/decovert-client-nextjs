@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import bannerFive from "../../../public/assets/img/banner/banner-5.jpg";
-import bannerOne from "../../../public/assets/img/banner/banner-shape-2.png";
-import bannerThree from "../../../public/assets/img/banner/banner-shape-2.png";
+import {
+  default as bannerOne,
+  default as bannerThree,
+} from "../../../public/assets/img/banner/banner-shape-2.png";
 import bannerFour from "../../../public/assets/img/banner/curved-arrow.png";
-import bannerTwo from "../../../public/assets/img/banner/discount-shape.png";
+
+const bannerFive = "https://i.ibb.co/ZYRrB8H/decovert-109306035-28753971.jpg";
 
 const HERO_H2_TEXT = `Éco Plantes & Décos`;
 const HERO_BANNER_TEXT = `🌿 Plantes & déco éco-responsables pour vos espaces. Inspirez-vous pour un intérieur sain et vert 🌱`;
@@ -52,12 +54,8 @@ const HeroSectionTwo = () => {
                   />
                 </div>
                 <div className="bd-banner__content-2">
-                  <h2>
-                    {HERO_H2_TEXT}
-                  </h2>
-                  <p>
-                    {HERO_BANNER_TEXT}
-                  </p>
+                  <h2>{HERO_H2_TEXT}</h2>
+                  <p>{HERO_BANNER_TEXT}</p>
                   <div className="bd-banner__btn">
                     <Link className="bd-bn__btn-1" href="/shop">
                       {BTN_SHOP_NOW}
@@ -70,6 +68,8 @@ const HeroSectionTwo = () => {
               <div className="bd-banner__thumb">
                 <Image
                   src={bannerFive}
+                  width={500}
+                  height={500}
                   style={{ width: "100%", height: "auto" }}
                   alt="banner-3.png"
                 />
