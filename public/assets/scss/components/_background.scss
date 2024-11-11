@@ -1,33 +1,33 @@
-@use '../utils' as *;
+@use "../utils" as *;
 
 /*----------------------------------------*/
 /*  03. Background color css start
 /*----------------------------------------*/
 
 .white-bg {
-	background: var(--clr-common-white);
+  background: var(--clr-common-white);
 }
 .black-bg {
-	background: var(--clr-common-heading);
+  background: var(--clr-common-heading);
 }
 .grey-bg {
-	background: var(--clr-bg-grey);
+  background: var(--clr-bg-grey);
 }
 .grey-bg-2 {
-	background: var(--clr-bg-grey-2);
+  background: var(--clr-bg-grey-2);
 }
 .grey-bg-3 {
-	background: var(--clr-bg-grey-3);
+  background: var(--clr-bg-grey-3);
 }
 .theme-bg {
-	background: var(--clr-theme-1);
+  background: linear-gradient(90deg, #0097b2, #7ed957);
 }
 .yellow-bg {
-	background: var(--clr-theme-2);
+  background: var(--clr-theme-2);
 }
 .danger-bg {
-	background: var(--clr-theme-4);
+  background: var(--clr-theme-4);
 }
 .wraning-bg {
-	background: var(--clr-theme-6);
+  background: var(--clr-theme-6);
 }
