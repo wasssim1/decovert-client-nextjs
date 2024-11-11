@@ -13,7 +13,12 @@
   transform: translateY(15px);
   -webkit-transition: all 200ms linear;
   transition: all ease 0.5s;
-  background: #699c47;
+  /* background: #699c47; */
+  background: linear-gradient(
+    90deg,
+	#0097b2,
+    var(--clr-theme-1)
+  );;
 }
 
 .progress-wrap:hover {

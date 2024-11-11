@@ -48,6 +48,6 @@ export const ALL_BLOGS_DATA: blogDataType[] = [
     commentsArray: [],
     authorEmail: "",
     comment: 0,
-    tags: ["jardinage, soins"],
+    tags: ["jardinage", "soins"],
   },
 ];

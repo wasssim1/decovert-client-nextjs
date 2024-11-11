@@ -44,6 +44,7 @@ const HeaderTwo = () => {
         : header.classList.remove("header-sticky");
     }
   };
+
   // Sticky Menu Area End
   return (
     <>
@@ -59,11 +60,7 @@ const HeaderTwo = () => {
               <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-6">
                 <div className="bd-header__logo-3">
                   <Link href="/">
-                    <Image
-                      src={logo}
-                      alt="logo"
-                      style={{ maxWidth: "190px", maxHeight: "50px" }}
-                    />
+                    <Image src={logo} alt="logo" width={127} height={33} />
                   </Link>
                 </div>
               </div>

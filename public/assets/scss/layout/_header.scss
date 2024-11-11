@@ -522,7 +522,8 @@
 		&-number {
 			width: 17px;
 			height: 17px;
-			background: #5E7463;
+			// background: #5E7463;
+			background: linear-gradient(90deg, #0097b2, #7ed957);
 			display: inline-block;
 			text-align: center;
 			line-height: 17px;
