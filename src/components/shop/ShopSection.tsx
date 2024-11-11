@@ -53,7 +53,7 @@ const ShopSection = () => {
     },
   ];
 
-  const handleInputChange = (e: any) => {
+  /* const handleInputChange = (e: any) => {
     setProdcutLoadding(true);
     setSearchValue(e.target.value);
 
@@ -68,9 +68,9 @@ const ShopSection = () => {
         setProdcutLoadding(false);
       })
       .catch((e) => console.log(e));
-  };
+  }; */
 
-  useEffect(() => {
+  /* useEffect(() => {
     setProdcutLoadding(true);
     axios
       .get(
@@ -90,9 +90,9 @@ const ShopSection = () => {
     setotalPages,
     setcurrentPage,
     setProdcutLoadding,
-  ]);
+  ]); */
 
-  useEffect(() => {
+ /*  useEffect(() => {
     setProdcutLoadding(true);
     async function fetchData() {
       try {
@@ -109,7 +109,7 @@ const ShopSection = () => {
     }
 
     fetchData();
-  }, [apiEndPoint, setProducts, setProdcutLoadding]);
+  }, [apiEndPoint, setProducts, setProdcutLoadding]); */
 
   const selectHandler = () => {};
 

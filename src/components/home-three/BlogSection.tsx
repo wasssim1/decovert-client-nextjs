@@ -48,7 +48,7 @@ const BlogSection = () => {
             </div>
           </div>
         </div>
-        {blog.length ? (
+        {blog?.length ? (
           <div className="row">
             {blog.slice(0, 3).map((item, num) => (
               <div className="col-xl-4 col-lg-4 col-md-6" key={num}>
