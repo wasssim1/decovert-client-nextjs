@@ -15,7 +15,7 @@ const PAGE_READ_MORE = "En Savoir Plus";
 const PAGE_NO_BLOGS_FOUND = "Pas d'article disponible";
 
 const BlogGridSection = ({ blogsList }: { blogsList: blogDataType[] }) => {
-  const { blog, setBlog } = useGlobalContext();
+  // const { blog, setBlog } = useGlobalContext();
   const [searchTag, setSearchTag] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(20);
@@ -29,16 +29,16 @@ const BlogGridSection = ({ blogsList }: { blogsList: blogDataType[] }) => {
     setSearchTag(_searchTag || "");
   }, [routeParams, blogsList]);
 
-  useEffect(() => {
-    if (searchTag) {
-      const filteredBlogs = blogsList.filter((blog) =>
-        blog.tags.includes(searchTag)
-      );
-      setBlog(filteredBlogs);
-    } else {
-      setBlog(blogsList);
-    }
-  }, [searchTag]);
+  // useEffect(() => {
+  //   if (searchTag) {
+  //     const filteredBlogs = blogsList.filter((blog) =>
+  //       blog.tags.includes(searchTag)
+  //     );
+  //     setBlog(filteredBlogs);
+  //   } else {
+  //     setBlog(blogsList);
+  //   }
+  // }, [searchTag]);
 
   return (
     <section className="bd-news__grid-area pt-115 pb-65">
@@ -52,8 +52,8 @@ const BlogGridSection = ({ blogsList }: { blogsList: blogDataType[] }) => {
           </div>
         )}
         <div className="row">
-          {blog.length ? (
-            blog.map((item, num) => (
+          {blogsList.length ? (
+            blogsList.map((item, num) => (
               <div className="col-xl-4 col-lg-4 col-md-6" key={num}>
                 <div className="bd-news__item mb-60">
                   <div className="bd-news__thumb w-img">
@@ -128,7 +128,7 @@ const BlogGridSection = ({ blogsList }: { blogsList: blogDataType[] }) => {
           )}
         </div>
 
-        {blog?.length ? (
+        {blogsList.length ? (
           <div className="row justify-content-center">
             <div className="col-xxl-12">
               <Pagination
