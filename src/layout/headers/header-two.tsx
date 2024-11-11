@@ -44,6 +44,7 @@ const HeaderTwo = () => {
         : header.classList.remove("header-sticky");
     }
   };
+
   // Sticky Menu Area End
   return (
     <>
