@@ -22,7 +22,7 @@ const BlogComments = ({ id }: dynamicIdType) => {
   return (
     <>
       <div>
-        {comments.length ? (
+        {comments?.length ? (
           <div className="bd-postbox__comment  mb-55 mt-30">
             <h3 className="postbox__comment-title">
               {" "}

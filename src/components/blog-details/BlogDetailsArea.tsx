@@ -35,11 +35,11 @@ const BlogDetailsArea = ({ blogItem }: { blogItem: blogDataType }) => {
                           <i className="fa-solid fa-calendar"></i>
                           <span>{blogItem?.date}</span>
                         </div>
-                        {blogItem.readTime && (
+                        {blogItem?.readTime && (
                           <div className="bd-news__meta-item">
                             <span>
                               <i className="fa-regular fa-clock"></i>
-                              {blogItem.readTime}
+                              {blogItem?.readTime}
                             </span>
                           </div>
                         )}
@@ -59,12 +59,12 @@ const BlogDetailsArea = ({ blogItem }: { blogItem: blogDataType }) => {
 
                       <div className="blog-content">
                         <h3>{blogItem?.title}</h3>
-                        {blogItem.blogContent.map((paragraph, idx) => (
+                        {blogItem?.blogContent?.map((paragraph, idx) => (
                           <p key={idx}>{paragraph}</p>
                         ))}
 
                         <div className="blog__details__tag tagcloud">
-                          {blogItem.tags?.map((tag, idx) => (
+                          {blogItem?.tags?.map((tag, idx) => (
                             <Link
                               key={`${tag}-${idx}`}
                               href={`/discover?tag=${tag}`}
@@ -77,7 +77,7 @@ const BlogDetailsArea = ({ blogItem }: { blogItem: blogDataType }) => {
                     </div>
                   </div>
                 </div>
-                <BlogComments id={blogItem?.slug} />
+                {/* <BlogComments id={blogItem?.slug} /> */}
                 <BlogCommentForm item={blogItem && blogItem} />
               </div>
             </div>

@@ -1,23 +1,23 @@
 "use client";
 
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { ALL_BLOGS_DATA } from "@/data/blog-data";
-import { blogDataType } from "@/interFace/api-interFace";
+
+const blogsList = ALL_BLOGS_DATA;
 
 const CARD_TITLE_RECENT_POSTS = "Articles Récents";
 
 const BlogSidebarBlogs = () => {
-  const [blogs, setBlogs] = useState<blogDataType[]>([]);
+  // const [blogs, setBlogs] = useState<blogDataType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(9);
   const [totalPages, seTotalPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  useEffect(() => {
+  /* useEffect(() => {
     axios
       .get(`${process.env.BASE_URL}blog/all-blog?page=${page}&limit=${limit}`)
       .then((res) => {
@@ -29,7 +29,7 @@ const BlogSidebarBlogs = () => {
         console.log(e);
         setBlogs(ALL_BLOGS_DATA.slice(0, 4));
       });
-  }, [page, limit, setBlogs]);
+  }, [page, limit, setBlogs]); */
 
   return (
     <div className="sidebar__widget mb-30">
@@ -37,9 +37,9 @@ const BlogSidebarBlogs = () => {
         <h4 className="sidebar__widget-title">{CARD_TITLE_RECENT_POSTS}</h4>
       </div>
       <div className="sidebar__widget-content">
-        {blogs && (
+        {blogsList && (
           <div className="rc__post-wrapper">
-            {blogs.map((item, num) => {
+            {blogsList.map((item, num) => {
               const title = item.title;
               const words = title.split(" ");
               const sortTitle = words.slice(0, 5).join(" ");
